@@ -3,6 +3,9 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 from io import BytesIO
 
+import sys
+st.write("Python version:", sys.version)
+
 # ---------------- Configurações iniciais ----------------
 st.set_page_config(page_title="MVP Agro", page_icon="🌱", layout="wide")
 st.title("📊 MVP Agro - Gestão de Leads")
@@ -100,9 +103,6 @@ def to_excel(df):
 # ---------------- Layout Kanban ----------------
 cols = st.columns(len(etapas))
 
-# DEBUG: mostrar dataframe completo
-st.write("DEBUG - leads_df completo")
-st.dataframe(st.session_state['leads_df'][['id','nome','etapa']])
 
 for idx, etapa in enumerate(etapas):
     with cols[idx]:
